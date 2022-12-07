@@ -1,0 +1,80 @@
+cmake_minimum_required(VERSION 3.18)
+
+set(CMAKE_CXX_STANDARD 17)
+find_package (Eigen3 3.4 REQUIRED NO_MODULE)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -ffast-math -fopenmp -fPIC" )
+set(CMAKE_MODULE_PATH "/usr/share/SFML/cmake/Modules" ${CMAKE_MODULE_PATH})
+#SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage ")
+#SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --coverage")
+find_package(SFML 2 REQUIRED network audio graphics window system)
+find_package(PythonLibs REQUIRED)
+find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
+FIND_PACKAGE( Boost  COMPONENTS python system numpy REQUIRED )
+find_package(pybind11 CONFIG REQUIRED)
+include(GNUInstallDirs)
+
+add_library(rlsimlib SHARED
+        scenario.cpp rl_agent.cpp
+        Controller.cpp
+        SpaceShipSim/SpaceShipSim.cpp
+        SpaceShipSim/SpaceShip.cpp
+        SpaceShipSim/viz_helpers/emitter.cpp
+        SpaceShipSim/viz_helpers/particle.cpp
+        SpaceShipSim/SpaceControllers.cpp
+        Label.cpp
+        ThreadPool.cpp
+        SpaceShipSim/viz_helpers/goal.cpp SpaceShipSim/viz_helpers/boosterglare.cpp
+        SpaceShipSim/viz_helpers/boosterglare.h SpaceShipSim/viz_helpers/GlowingBall.cpp
+        SpaceShipSim/viz_helpers/GlowingBall.h SpaceShipSim/DistanceSensors.cpp SpaceShipSim/DistanceSensors.h SpaceShipSim/Obstacle.cpp)
+
+target_include_directories(rlsimlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+#set_target_properties(rlsimlib PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(rlsimlib PROPERTIES PUBLIC_HEADER "${PROJECT_SOURCE_DIR}/src/SpaceShipSim/SpaceShipSim.h;${PROJECT_SOURCE_DIR}/src/SpaceShipSim/SpaceControllers.h")
+target_link_libraries(rlsimlib sfml-graphics sfml-audio sfml-window sfml-system Eigen3::Eigen Python3::NumPy)
+set_target_properties(rlsimlib PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
+set_target_properties(rlsimlib PROPERTIES RESOURCE "/home/finn/CLionProjects/RLSimLibrary/Arial.ttf")
+
+
+pybind11_add_module(SpaceShipSim MODULE
+        scenario.cpp rl_agent.cpp
+        Controller.cpp
+        SpaceShipSim/SpaceShipSim.cpp
+        SpaceShipSim/SpaceShip.cpp
+        SpaceShipSim/viz_helpers/emitter.cpp
+        SpaceShipSim/viz_helpers/particle.cpp
+        SpaceShipSim/SpaceControllers.cpp
+        Label.cpp
+        ThreadPool.cpp
+        SpaceShipSim/viz_helpers/goal.cpp SpaceShipSim/viz_helpers/boosterglare.cpp
+        SpaceShipSim/viz_helpers/boosterglare.h SpaceShipSim/viz_helpers/GlowingBall.cpp
+        SpaceShipSim/viz_helpers/GlowingBall.h SpaceShipSim/DistanceSensors.cpp SpaceShipSim/DistanceSensors.h SpaceShipSim/Obstacle.cpp
+        interface.cpp
+        )
+#target_compile_definitions(SpaceShipSim PRIVATE VERSION_INFO=${PROJECT_VERSION})
+
+
+target_include_directories(SpaceShipSim PUBLIC ${PYTHON_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+target_link_libraries(SpaceShipSim PRIVATE ${PYTHON_LIBRARIES} sfml-graphics sfml-audio sfml-window sfml-system Eigen3::Eigen Python3::NumPy)
+#
+
+target_compile_definitions(SpaceShipSim PRIVATE VERSION_INFO=${PROJECT_VERSION})
+
+install(TARGETS SpaceShipSim
+        DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/PythonBuild)
+
+install(TARGETS rlsimlib
+        LIBRARY DESTINATION "/home/finn/lib"
+        ARCHIVE DESTINATION "/home/finn/lib"
+        RESOURCE DESTINATION "/home/finn/lib/resources"
+        PUBLIC_HEADER DESTINATION "/home/finn/include")
+
+
+add_executable(${PROJECT_NAME} main.cpp scenario.cpp scenario.h rl_agent.cpp rl_agent.h SpaceShipSim/SpaceShipSim.cpp
+        SpaceShipSim/SpaceShipSim.h SpaceShipSim/SpaceShip.cpp SpaceShipSim/SpaceShip.h
+        SpaceShipSim/viz_helpers/emitter.cpp SpaceShipSim/viz_helpers/emitter.h SpaceShipSim/viz_helpers/particle.cpp
+        SpaceShipSim/viz_helpers/particle.h Controller.cpp Controller.h SpaceShipSim/util.h SpaceShipSim/SpaceControllers.cpp
+        SpaceShipSim/SpaceControllers.h ThreadPool.cpp ThreadPool.h Label.cpp Label.h SpaceShipSim/viz_helpers/goal.cpp
+        SpaceShipSim/viz_helpers/boosterglare.cpp SpaceShipSim/viz_helpers/GlowingBall.cpp SpaceShipSim/DistanceSensors.cpp
+        SpaceShipSim/Obstacle.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PYTHON_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-audio sfml-window sfml-system  Eigen3::Eigen ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} Python3::NumPy)
