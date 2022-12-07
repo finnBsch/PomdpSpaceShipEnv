@@ -1,0 +1,22 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+
+[project]
+name = "pomdp_spaceship_env"
+version = "0.0.1"
+description="A partially observable space ship environment for RL tasks."
+authors = [
+  { name = "Finn Lukas Busch", email = "finn.lukas.busch@gmail.com" },
+]
+requires-python = ">=3.7"
+
+
+
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+
+
+[tool.cibuildwheel]
+build-verbosity = 1

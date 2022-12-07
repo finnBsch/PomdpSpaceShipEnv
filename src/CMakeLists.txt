@@ -7,7 +7,7 @@ set(CMAKE_MODULE_PATH "/usr/share/SFML/cmake/Modules" ${CMAKE_MODULE_PATH})
 find_package(SFML 2 REQUIRED network audio graphics window system)
 find_package(PythonLibs REQUIRED)
 find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
-FIND_PACKAGE( Boost  COMPONENTS python system numpy REQUIRED )
+FIND_PACKAGE(Boost  COMPONENTS python system numpy REQUIRED )
 find_package(pybind11 CONFIG REQUIRED)
 include(GNUInstallDirs)
 
