@@ -202,7 +202,7 @@ std::vector<float> SpaceShipSim::get_complete_state(int agent_id) {
  * @param agent agent of interest
  * @return Agent state but relative to goal.
  */
-Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>* SpaceShipSim::get_relative_state_() {
+Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>& SpaceShipSim::get_relative_state_() {
     relative_state.col(0) = (goals.col(0) - states.col(0))/config->sizex;
     relative_state.col(1) = (goals.col(1) - states.col(1))/config->sizex;
 //    relative_state.col(2) = states.col(0)/config->sizex;
@@ -218,7 +218,7 @@ Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>* SpaceShipSim::get_relative_st
     for(int i = 0; i < n_ships; i++) {
         relative_state(i, Eigen::seq(9, 9 + NUM_RAYS - 1)) = dists(Eigen::seq(i*NUM_RAYS, (i+1)*NUM_RAYS -1), Eigen::all)/config->sizey;
     }
-    return &relative_state;
+    return relative_state;
 }
 
 
@@ -498,12 +498,12 @@ void SpaceShipSim::set_controls(Eigen::Array<float, Eigen::Dynamic, 4>& ins) {
     actuations = ins;
 }
 
-const Eigen::Array<float, Eigen::Dynamic, 1> *SpaceShipSim::get_rewards() {
-    return &rewards;
+const Eigen::Array<float, Eigen::Dynamic, 1>& SpaceShipSim::get_rewards() {
+    return rewards;
 }
 
-const Eigen::Array<bool, Eigen::Dynamic, 1> *SpaceShipSim::get_dones() {
-    return &dones;
+const Eigen::Array<bool, Eigen::Dynamic, 1>& SpaceShipSim::get_dones() {
+    return dones;
 }
 
 void SpaceShipSim::set_view(float width, float height, float x0, float y0) {

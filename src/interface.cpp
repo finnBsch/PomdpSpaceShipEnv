@@ -44,26 +44,26 @@ SpaceShipInterface::SpaceShipInterface(GlobalParams config, int n_ships){
     sim = new SpaceShipSim(&this->config, n_ships);
 }
 
-Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>* SpaceShipInterface::get_states() {
+Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>& SpaceShipInterface::get_states() {
     return sim->get_relative_state_();
 }
 
-const Eigen::Array<bool, Eigen::Dynamic, 1>*  SpaceShipInterface::get_dones(){
+const Eigen::Array<bool, Eigen::Dynamic, 1>&  SpaceShipInterface::get_dones(){
     return sim->get_dones();
 }
 
-const Eigen::Array<float, Eigen::Dynamic, 1> * SpaceShipInterface::get_rewards(){
+const Eigen::Array<float, Eigen::Dynamic, 1>& SpaceShipInterface::get_rewards(){
     return sim->get_rewards();
 }
 const act_arr* SpaceShipInterface::get_min_in(){
     return sim->get_min_in();
 }
 
-const act_arr* SpaceShipInterface::get_max_in(){
+const act_arr* SpaceShipInterface::get_max_in() {
     return sim->get_max_in();
 }
-void SpaceShipInterface::set_controls(py::array &control_ins) {
 
+void SpaceShipInterface::set_controls(py::array &control_ins) {
     control_in = Eigen::Map<Eigen::Array<float, 4, Eigen::Dynamic>, Eigen::Unaligned, Eigen::OuterStride<>>
     ((float *)  control_ins.data(),4, control_ins.shape(0), Eigen::OuterStride<>(4)).transpose();
     sim->set_controls(control_in);

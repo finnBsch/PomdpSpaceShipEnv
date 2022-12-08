@@ -1,3 +1,8 @@
-from ._core import __version__, Config, SpaceShip
+"""
+Pomdp Space Ship Env
+=====================
 
-__all__ = ["__version__", "Config", "SpaceShip"]
+"""
+from .env_core import __version__, Config, Env, __doc__
+
+__all__ = ["__doc__", "__version__", "Config", "Env"]

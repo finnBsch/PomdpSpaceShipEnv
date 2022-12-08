@@ -68,9 +68,9 @@ public:
     int add_ship();
     // In/Out Communication
     std::vector<float> get_complete_state(int agent_id);
-    Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>* get_relative_state_();
-    const Eigen::Array<float, Eigen::Dynamic, 1>* get_rewards();
-    const Eigen::Array<bool, Eigen::Dynamic, 1>* get_dones();
+    Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>& get_relative_state_();
+    const Eigen::Array<float, Eigen::Dynamic, 1>& get_rewards();
+    const Eigen::Array<bool, Eigen::Dynamic, 1>& get_dones();
     void set_controls(Eigen::Array<float, Eigen::Dynamic, 4>& ins);
     const act_arr* get_max_in(){
         return &max_in;
