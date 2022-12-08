@@ -1,6 +1,0 @@
-/home/finn/clion/clion-2022.2.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/finn/clion/clion-2022.2.3/bin/ninja/linux/ninja -G Ninja -S /home/finn/PomdpSpaceShipEnv -B /home/finn/PomdpSpaceShipEnv/cmake-build-debug
--- Found SFML 2.5.1 in /usr/lib/x86_64-linux-gnu/cmake/SFML
--- Found pybind11: /usr/include (found version "2.9.1")
--- Configuring done
--- Generating done
--- Build files have been written to: /home/finn/PomdpSpaceShipEnv/cmake-build-debug

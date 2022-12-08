@@ -45,10 +45,15 @@ public:
     void reset_to_init(int id);
 };
 
-PYBIND11_MODULE(libSpaceShipSim, m)
+PYBIND11_MODULE(_core, m)
 {
     py::class_<GlobalParams>(m, "Config")
-            .def_readwrite("Viz", &GlobalParams::viz)
+            .def(py::init())
+            .def_readwrite("Viz", &GlobalParams::viz, R"pbdoc(
+                Visualize the environment.
+                Type: boolean
+                Default: False
+            )pbdoc")
             .def_readwrite("ResX", &GlobalParams::resx)
             .def_readwrite("ResY", &GlobalParams::resy)
             .def_readwrite("SizeX", &GlobalParams::sizex)
@@ -79,6 +84,7 @@ PYBIND11_MODULE(libSpaceShipSim, m)
             .def("ExportFrame", &SpaceShipInterface::export_frame)
             .def("SetViz", &SpaceShipInterface::set_viz)
             .def("ResetToInit", &SpaceShipInterface::reset_to_init);
+    m.attr("__version__") = "dev";
 }
 
 #endif //RLSIMLIBRARY_INTERFACE_H
