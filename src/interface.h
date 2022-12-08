@@ -48,10 +48,13 @@ public:
 
 PYBIND11_MODULE(env_core, m)
 {
+
     m.doc() =  R"pbdoc(
         POMDP Space Ship Environment
         -----------------------
     )pbdoc";
+//    py::options options;
+//    options.disable_function_signatures();
     py::class_<GlobalParams>(m, "Config")
             .def(py::init())
             .def_readwrite("Viz", &GlobalParams::viz, R"pbdoc(
@@ -140,12 +143,16 @@ PYBIND11_MODULE(env_core, m)
         Set the control inputs for all shapes. MUST BE OF TYPE np.float32!
         Input:
             Numpy Array of Shape (n_ships, control_dim)
-        )pbdoc")
+        )pbdoc", py::arg("ControlIn"))
             .def("GetReward", &SpaceShipInterface::get_rewards, R"pbdoc(
         Get an array of the current rewards of all ships.
+
         Returns
         -------
-            Numpy Array of Shape (n_ships, 1)
+        out : ndarray
+            An NumPy Array of Shape (n_ships, 1)
+
+
         )pbdoc")
             .def("GetAgentDone", &SpaceShipInterface::get_dones, R"pbdoc(
         Get an boolean array which contains "True" if the corresponding ship has collided or met the goal condition.

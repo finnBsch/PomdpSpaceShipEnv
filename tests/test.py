@@ -6,8 +6,9 @@ import scikit_build_example
 
 
 # print(help(pomdp_spaceship_env))
+print(pomdp_spaceship_env.__version__)
 a = pomdp_spaceship_env.Config()
-a.Viz = False
+a.Viz = True
 a.ResX = int(1920/2)
 a.ResY = int(1080/2)
 n_ships = 20
@@ -21,6 +22,7 @@ for i in range(10000):
     ins = np.repeat(ins, n_ships, axis=0)
     b.Step()
     j = b.GetState()
+    ins.tolist()
     j2 = b.GetReward()
     j3 = b.GetAgentDone()
     mm = b.GetMaxIn()
