@@ -1,0 +1,335 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pomdp_spaceship_env package &#8212; Pomdp Space Ship Environment  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pomdp_spaceship_env" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pomdp-spaceship-env-package">
+<h1>pomdp_spaceship_env package<a class="headerlink" href="#pomdp-spaceship-env-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pomdp_spaceship_env">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pomdp_spaceship_env" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pomdp-space-ship-environment">
+<h3>POMDP Space Ship Environment<a class="headerlink" href="#pomdp-space-ship-environment" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pomdp_spaceship_env.Config">
+<em class="property">class </em><code class="descclassname">pomdp_spaceship_env.</code><code class="descname">Config</code><a class="headerlink" href="#pomdp_spaceship_env.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.AutoReset">
+<code class="descname">AutoReset</code><a class="headerlink" href="#pomdp_spaceship_env.Config.AutoReset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether one Space Ship should be reset upon collision or goal condition
+Type: bool
+Default: True</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.DynamicGoals">
+<code class="descname">DynamicGoals</code><a class="headerlink" href="#pomdp_spaceship_env.Config.DynamicGoals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether the goal points should be moving (dynamic) or not (static)
+Type: bool
+Default: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.NumObs">
+<code class="descname">NumObs</code><a class="headerlink" href="#pomdp_spaceship_env.Config.NumObs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of obstacles to be generated per Space Ship
+Type: int
+Default: 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.PrintLevel">
+<code class="descname">PrintLevel</code><a class="headerlink" href="#pomdp_spaceship_env.Config.PrintLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output print Level
+Type: int
+Default: 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.ResX">
+<code class="descname">ResX</code><a class="headerlink" href="#pomdp_spaceship_env.Config.ResX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolution in width.
+Type: int
+Default: 1920</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.ResY">
+<code class="descname">ResY</code><a class="headerlink" href="#pomdp_spaceship_env.Config.ResY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolution in height.
+Type: int
+Default: 1080</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.ShareEnvs">
+<code class="descname">ShareEnvs</code><a class="headerlink" href="#pomdp_spaceship_env.Config.ShareEnvs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether the Space Ships should share the Goal Point and Obstacles
+Type: bool
+Default: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.SizeX">
+<code class="descname">SizeX</code><a class="headerlink" href="#pomdp_spaceship_env.Config.SizeX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Environment size width
+Type: float
+Default: 170</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.SizeY">
+<code class="descname">SizeY</code><a class="headerlink" href="#pomdp_spaceship_env.Config.SizeY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Environment size height
+Type: float
+Default: 100</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pomdp_spaceship_env.Config.Viz">
+<code class="descname">Viz</code><a class="headerlink" href="#pomdp_spaceship_env.Config.Viz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the environment.
+Type: bool
+Default: False</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pomdp_spaceship_env.Env">
+<em class="property">class </em><code class="descclassname">pomdp_spaceship_env.</code><code class="descname">Env</code><a class="headerlink" href="#pomdp_spaceship_env.Env" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.Draw">
+<code class="descname">Draw</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>arg0: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.Draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the Environment without Stepping the Simulation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.ExportFrame">
+<code class="descname">ExportFrame</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>arg0: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.ExportFrame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.GetAgentDone">
+<code class="descname">GetAgentDone</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray[bool[m, 1]]<a class="headerlink" href="#pomdp_spaceship_env.Env.GetAgentDone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an boolean array which contains “True” if the corresponding ship has collided or met the goal condition.
+Returns:
+Numpy Array of Shape (n_ships, 1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.GetMaxIn">
+<code class="descname">GetMaxIn</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em><span class="sig-paren">)</span> &#x2192; List[float[4]]<a class="headerlink" href="#pomdp_spaceship_env.Env.GetMaxIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get upper actuation limit of the Environment.
+Returns:
+Numpy Array of Shape (control_dim, 1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.GetMinIn">
+<code class="descname">GetMinIn</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em><span class="sig-paren">)</span> &#x2192; List[float[4]]<a class="headerlink" href="#pomdp_spaceship_env.Env.GetMinIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get lower actuation limit of the Environment.
+Returns:
+Numpy Array of Shape (control_dim, 1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.GetReward">
+<code class="descname">GetReward</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray[numpy.float32[m, 1]]<a class="headerlink" href="#pomdp_spaceship_env.Env.GetReward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an array of the current rewards of all ships.</p>
+<p>Returns a NumPy Array of Shape (n_ships, 1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.GetState">
+<code class="descname">GetState</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray[numpy.float32[m, 521]]<a class="headerlink" href="#pomdp_spaceship_env.Env.GetState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an array of the current states of all ships.
+Returns:
+Numpy Array of Shape (n_ships, state_dim)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.Reset">
+<code class="descname">Reset</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.Reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the entire environment. All goal points are regenerated, all ships reinitialized and all obstacles resetted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.ResetToInit">
+<code class="descname">ResetToInit</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>id: int</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.ResetToInit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset a specific ship, specified by its ID, to the initial position.</p>
+<p>Input:
+id: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.SetControl">
+<code class="descname">SetControl</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>ControlIn: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.SetControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the control inputs for all shapes. MUST BE OF TYPE np.float32!
+Input:
+Numpy Array of Shape (n_ships, control_dim)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.SetGoal">
+<code class="descname">SetGoal</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>id: int</em>, <em>x: float</em>, <em>y: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.SetGoal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a goal point, specified by the ID, to a specific position. Not working for dynamic goal points.
+Input:
+Ship Identifier, id: int
+x-coordinate, x: float
+y-coordinate, y: float</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.SetShip">
+<code class="descname">SetShip</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>id: int</em>, <em>x: float</em>, <em>y: float</em>, <em>phi: float</em>, <em>vx: float</em>, <em>vy: float</em>, <em>vphi: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.SetShip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a specific ship, specified by its ID, to a specific Position.
+Input:
+Ship Identifier, id: int
+x-coordinate, x: float
+y-coordinate, y: float
+angle, phi: float
+x-velocity, vx: float
+y-velocity, vy: float
+angular-velocity, vphi: float</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.SetView">
+<code class="descname">SetView</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>width: float</em>, <em>height: float</em>, <em>x0: float</em>, <em>y0: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.SetView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the camera view (viz only).
+Input:
+width: float
+height: float
+x0: float
+y0: float</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.SetViz">
+<code class="descname">SetViz</code><span class="sig-paren">(</span><em>self: pomdp_spaceship_env.env_core.Env</em>, <em>draw_rays: bool</em>, <em>draw_obs: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pomdp_spaceship_env.Env.SetViz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable or enable obstacle drawing and distance sensor ray drawing.
+Input:
+draw_rays: bool
+draw_obs: bool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pomdp_spaceship_env.Env.Step">
+<code class="descname">Step</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pomdp_spaceship_env.Env.Step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p class="first">Step(self: pomdp_spaceship_env.env_core.Env) -&gt; bool</p>
+<blockquote>
+<div><p>Steps the environment. If viz was set to True, it will also draw the Environment.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Step(self: pomdp_spaceship_env.env_core.Env, dt: float) -&gt; bool</p>
+<blockquote>
+<div><p>Steps the environment given an elapsed time. If viz was set to True, it will also draw the Environment.</p>
+</div></blockquote>
+</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Pomdp Space Ship Environment</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pomdp_spaceship_env</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pomdp_spaceship_env package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">pomdp_spaceship_env</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">pomdp_spaceship_env</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Finn Lukas Busch.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/pomdp_spaceship_env.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

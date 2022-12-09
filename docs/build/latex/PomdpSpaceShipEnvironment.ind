@@ -1,0 +1,64 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{AutoReset}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{Config}\spxextra{class in pomdp\_spaceship\_env}, \hyperpage{1}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{Draw()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{1}
+  \item \spxentry{DynamicGoals}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{Env}\spxextra{class in pomdp\_spaceship\_env}, \hyperpage{1}
+  \item \spxentry{ExportFrame()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{1}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{GetAgentDone()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{GetMaxIn()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{GetMinIn()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{GetReward()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{GetState()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{NumObs}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{pomdp\_spaceship\_env}\spxextra{module}, \hyperpage{1}
+  \item \spxentry{PrintLevel}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{Reset()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{ResetToInit()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{ResX}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+  \item \spxentry{ResY}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{SetControl()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{SetGoal()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{SetShip()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{SetView()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{SetViz()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+  \item \spxentry{ShareEnvs}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+  \item \spxentry{SizeX}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+  \item \spxentry{SizeY}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+  \item \spxentry{Step()}\spxextra{pomdp\_spaceship\_env.Env method}, \hyperpage{2}
+
+  \indexspace
+  \bigletter V
+  \item \spxentry{Viz}\spxextra{pomdp\_spaceship\_env.Config attribute}, \hyperpage{1}
+
+\end{sphinxtheindex}
