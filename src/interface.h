@@ -52,61 +52,65 @@ PYBIND11_MODULE(env_core, m)
     m.doc() =  R"pbdoc(
         POMDP Space Ship Environment
         -----------------------
+
+        .. currentmodule:: pomdp_spaceship_env
+
+
     )pbdoc";
 //    py::options options;
 //    options.disable_function_signatures();
     py::class_<GlobalParams>(m, "Config")
             .def(py::init())
             .def_readwrite("Viz", &GlobalParams::viz, R"pbdoc(
-                Visualize the environment.
-                Type: bool
-                Default: False
-            )pbdoc")
+    Visualize the environment.
+    Type: bool
+    Default: False
+    )pbdoc")
             .def_readwrite("ResX", &GlobalParams::resx, R"pbdoc(
     Resolution in width.
-            Type: int
+    Type: int
     Default: 1920
     )pbdoc")
             .def_readwrite("ResY", &GlobalParams::resy, R"pbdoc(
     Resolution in height.
-            Type: int
+    Type: int
     Default: 1080
     )pbdoc")
             .def_readwrite("SizeX", &GlobalParams::sizex, R"pbdoc(
     Environment size width
-            Type: float
+    Type: float
     Default: 170
     )pbdoc")
             .def_readwrite("SizeY", &GlobalParams::sizey, R"pbdoc(
     Environment size height
-            Type: float
+    Type: float
     Default: 100
     )pbdoc")
             .def_readwrite("PrintLevel", &GlobalParams::print_level, R"pbdoc(
     Output print Level
-            Type: int
+    Type: int
     Default: 0
     )pbdoc")
             .def_readwrite("AutoReset", &GlobalParams::auto_reset, R"pbdoc(
     Determines whether one Space Ship should be reset upon collision or goal condition
-            Type: bool
+    Type: bool
     Default: True
     )pbdoc")
             .def_readwrite("DynamicGoals", &GlobalParams::dynamic_goal, R"pbdoc(
     Determines whether the goal points should be moving (dynamic) or not (static)
-            Type: bool
+    Type: bool
     Default: False
     )pbdoc")
             .def_readwrite("ShareEnvs", &GlobalParams::share_envs,
                            R"pbdoc(
     Determines whether the Space Ships should share the Goal Point and Obstacles
-            Type: bool
+    Type: bool
     Default: False
     )pbdoc")
             .def_readwrite("NumObs", &GlobalParams::num_obstacles,
                            R"pbdoc(
     Number of obstacles to be generated per Space Ship
-            Type: int
+    Type: int
     Default: 0
     )pbdoc");
 
@@ -137,45 +141,42 @@ PYBIND11_MODULE(env_core, m)
             .def("GetState", &SpaceShipInterface::get_states, R"pbdoc(
         Get an array of the current states of all ships.
         Returns:
-            Numpy Array of Shape (n_ships, state_dim)
+        Numpy Array of Shape (n_ships, state_dim)
         )pbdoc")
             .def("SetControl", &SpaceShipInterface::set_controls, R"pbdoc(
         Set the control inputs for all shapes. MUST BE OF TYPE np.float32!
         Input:
-            Numpy Array of Shape (n_ships, control_dim)
+        Numpy Array of Shape (n_ships, control_dim)
         )pbdoc", py::arg("ControlIn"))
             .def("GetReward", &SpaceShipInterface::get_rewards, R"pbdoc(
         Get an array of the current rewards of all ships.
 
-        Returns
-        -------
-        out : ndarray
-            An NumPy Array of Shape (n_ships, 1)
+        Returns a NumPy Array of Shape (n_ships, 1)
 
 
         )pbdoc")
             .def("GetAgentDone", &SpaceShipInterface::get_dones, R"pbdoc(
         Get an boolean array which contains "True" if the corresponding ship has collided or met the goal condition.
         Returns:
-            Numpy Array of Shape (n_ships, 1)
+        Numpy Array of Shape (n_ships, 1)
         )pbdoc")
             .def("GetMinIn", &SpaceShipInterface::get_min_in, R"pbdoc(
         Get lower actuation limit of the Environment.
         Returns:
-            Numpy Array of Shape (control_dim, 1)
+        Numpy Array of Shape (control_dim, 1)
         )pbdoc")
             .def("GetMaxIn", &SpaceShipInterface::get_max_in, R"pbdoc(
         Get upper actuation limit of the Environment.
         Returns:
-            Numpy Array of Shape (control_dim, 1)
+        Numpy Array of Shape (control_dim, 1)
         )pbdoc")
             .def("SetView", &SpaceShipInterface::set_view, R"pbdoc(
         Set the camera view (viz only).
         Input:
-            width: float
-            height: float
-            x0: float
-            y0: float
+        width: float
+        height: float
+        x0: float
+        y0: float
         )pbdoc", py::arg("width"), py::arg("height"), py::arg("x0"), py::arg("y0"))
             .def("Draw", &SpaceShipInterface::draw, R"pbdoc(
         Draws the Environment without Stepping the Simulation.
@@ -183,32 +184,33 @@ PYBIND11_MODULE(env_core, m)
             .def("SetShip", &SpaceShipInterface::set_ship, R"pbdoc(
         Set a specific ship, specified by its ID, to a specific Position.
         Input:
-            Ship Identifier, id: int
-            x-coordinate, x: float
-            y-coordinate, y: float
-            angle, phi: float
-            x-velocity, vx: float
-            y-velocity, vy: float
-            angular-velocity, vphi: float
+        Ship Identifier, id: int
+        x-coordinate, x: float
+        y-coordinate, y: float
+        angle, phi: float
+        x-velocity, vx: float
+        y-velocity, vy: float
+        angular-velocity, vphi: float
         )pbdoc", py::arg("id"), py::arg("x"), py::arg("y"), py::arg("phi"), py::arg("vx"), py::arg("vy"), py::arg("vphi"))
             .def("SetGoal", &SpaceShipInterface::set_goal, R"pbdoc(
         Set a goal point, specified by the ID, to a specific position. Not working for dynamic goal points.
         Input:
-            Ship Identifier, id: int
-            x-coordinate, x: float
-            y-coordinate, y: float
+        Ship Identifier, id: int
+        x-coordinate, x: float
+        y-coordinate, y: float
         )pbdoc", py::arg("id"), py::arg("x"), py::arg("y"))
             .def("ExportFrame", &SpaceShipInterface::export_frame)
             .def("SetViz", &SpaceShipInterface::set_viz, R"pbdoc(
         Disable or enable obstacle drawing and distance sensor ray drawing.
         Input:
-            draw_rays: bool
-            draw_obs: bool
+        draw_rays: bool
+        draw_obs: bool
         )pbdoc", py::arg("draw_rays"), py::arg("draw_obs"))
             .def("ResetToInit", &SpaceShipInterface::reset_to_init, R"pbdoc(
         Reset a specific ship, specified by its ID, to the initial position.
+
         Input:
-            id: int
+        id: int
         )pbdoc", py::arg("id"));
     m.attr("__version__") = "dev";
 }
