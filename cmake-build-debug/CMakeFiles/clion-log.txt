@@ -1,0 +1,5 @@
+/home/finn/JetBrains/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/finn/JetBrains/clion/bin/ninja/linux/ninja -DCMAKE_C_COMPILER=/bin/gcc-11 -DCMAKE_CXX_COMPILER=/bin/g++-11 -G Ninja /home/finn/CLionProjects/PomdpSpaceShipEnv
+-- Found SFML 2.5.1 in /usr/lib/x86_64-linux-gnu/cmake/SFML
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/finn/CLionProjects/PomdpSpaceShipEnv/cmake-build-debug
