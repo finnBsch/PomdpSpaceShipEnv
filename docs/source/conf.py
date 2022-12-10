@@ -18,19 +18,6 @@ sys.path.insert(0, os.path.abspath('../../src/pomdp_spaceship_env/'))
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../'))
 
-def run_apidoc(_):
-    from sphinx.ext.apidoc import main
-    import os
-    import sys
-    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-    cur_dir = os.path.abspath(os.path.dirname(__file__))
-    module = '.'
-    output_path = os.path.join(cur_dir, 'source')
-    # main(['-e', '-o', output_path, module, '--force'])
-
-def setup(app):
-    app.connect('builder-inited', run_apidoc)
-
 # -- Project information -----------------------------------------------------
 
 project = 'Pomdp Space Ship Environment'
