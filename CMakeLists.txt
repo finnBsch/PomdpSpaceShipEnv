@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15...3.25)
 project(${SKBUILD_PROJECT_NAME}  VERSION ${SKBUILD_PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD 17)
-find_package (Eigen3 3.4 REQUIRED NO_MODULE)
+find_package (Eigen3 REQUIRED NO_MODULE)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -ffast-math -fopenmp -fPIC" )
 #set(CMAKE_MODULE_PATH "/usr/share/SFML/cmake/Modules" ${CMAKE_MODULE_PATH})
 find_package(SFML 2 REQUIRED network audio graphics window system)
