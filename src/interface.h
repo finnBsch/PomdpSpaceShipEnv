@@ -59,13 +59,11 @@ PYBIND11_MODULE(env_core, m)
     )pbdoc";
 //    py::options options;
 //    options.disable_function_signatures();
-    py::class_<GlobalParams>(m, "Config")
-            .def(py::init())
-            .def_readwrite("Viz", &GlobalParams::viz, R"pbdoc(
-    Visualize the environment.
-    Type: bool
-    Default: False
+    py::class_<GlobalParams>(m, "Config", R"pbdoc(
+    Confic datastruct.
+	:ivar viz: bool
     )pbdoc")
+    .def(py::init())
             .def_readwrite("ResX", &GlobalParams::resx, R"pbdoc(
     Resolution in width.
     Type: int
@@ -106,6 +104,11 @@ PYBIND11_MODULE(env_core, m)
     Determines whether the Space Ships should share the Goal Point and Obstacles
     Type: bool
     Default: False
+    )pbdoc")
+            .def_readwrite("Viz", &GlobalParams::viz, R"pbdoc(
+    Visualize the environment.
+   	:param viz: Setting whether to run the visualization or not., default to False
+   	:type viz: bool
     )pbdoc")
             .def_readwrite("NumObs", &GlobalParams::num_obstacles,
                            R"pbdoc(
