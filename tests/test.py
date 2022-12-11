@@ -3,6 +3,7 @@ import pomdp_spaceship_env
 import numpy as np
 import time
 import scikit_build_example
+import cmake_example
 
 
 # print(help(pomdp_spaceship_env))

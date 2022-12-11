@@ -10,7 +10,7 @@ find_package(SFML 2 REQUIRED network audio graphics window system)
 #find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
 find_package(pybind11 CONFIG REQUIRED)
 
-pybind11_add_module(env_core MODULE
+pybind11_add_module(pomdp_spaceship_env MODULE
         src/scenario.cpp
         src/rl_agent.cpp
         src/Controller.cpp
@@ -29,10 +29,10 @@ pybind11_add_module(env_core MODULE
         src/interface.cpp
         )
 
-target_link_libraries(env_core PRIVATE ${PYTHON_LIBRARIES} sfml-graphics sfml-audio sfml-window sfml-system Eigen3::Eigen)
+target_link_libraries(pomdp_spaceship_env PRIVATE ${PYTHON_LIBRARIES} sfml-graphics sfml-audio sfml-window sfml-system Eigen3::Eigen)
 
-target_compile_definitions(env_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
+target_compile_definitions(pomdp_spaceship_env PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
-install(TARGETS env_core
+install(TARGETS pomdp_spaceship_env
         DESTINATION pomdp_spaceship_env)
 

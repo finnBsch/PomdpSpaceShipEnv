@@ -1,6 +1,3 @@
-pomdp_spaceship_env
-===================
-
 .. toctree::
    :maxdepth: 4
 

@@ -46,7 +46,7 @@ public:
     void reset_to_init(int id);
 };
 
-PYBIND11_MODULE(env_core, m)
+PYBIND11_MODULE(pomdp_spaceship_env, m)
 {
 
     m.doc() =  R"pbdoc(

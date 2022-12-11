@@ -29,7 +29,6 @@ version = ''
 # The full version, including alpha/beta/rc tags
 release = ''
 
-
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -44,7 +43,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon'
 ]
-
+autosummary_generate = True
+add_module_names = False
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
