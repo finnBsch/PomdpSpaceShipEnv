@@ -10,7 +10,7 @@ Welcome to Pomdp Space Ship Environment's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   pomdp_spaceship_env
 
 
 Indices and tables
