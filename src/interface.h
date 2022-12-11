@@ -51,10 +51,6 @@ PYBIND11_MODULE(env_core, m)
 
     m.doc() =  R"pbdoc(
         POMDP Space Ship Environment
-        -----------------------
-
-        .. currentmodule:: pomdp_spaceship_env
-
 
     )pbdoc";
 //    py::options options;
@@ -148,8 +144,11 @@ PYBIND11_MODULE(env_core, m)
         )pbdoc")
             .def("SetControl", &SpaceShipInterface::set_controls, R"pbdoc(
         Set the control inputs for all shapes. MUST BE OF TYPE np.float32!
-        Input:
-        Numpy Array of Shape (n_ships, control_dim)
+
+        Args:
+        	ControlIn: Numpy Array of Shape (n_ships, control_dim)
+        Returns:
+        	None
         )pbdoc", py::arg("ControlIn"))
             .def("GetReward", &SpaceShipInterface::get_rewards, R"pbdoc(
         Get an array of the current rewards of all ships.
@@ -205,9 +204,10 @@ PYBIND11_MODULE(env_core, m)
             .def("ExportFrame", &SpaceShipInterface::export_frame)
             .def("SetViz", &SpaceShipInterface::set_viz, R"pbdoc(
         Disable or enable obstacle drawing and distance sensor ray drawing.
-        Input:
-        draw_rays: bool
-        draw_obs: bool
+        
+        Args:
+        	draw_rays: bool
+        	draw_obs: bool
         )pbdoc", py::arg("draw_rays"), py::arg("draw_obs"))
             .def("ResetToInit", &SpaceShipInterface::reset_to_init, R"pbdoc(
         Reset a specific ship, specified by its ID, to the initial position.
