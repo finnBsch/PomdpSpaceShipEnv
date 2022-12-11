@@ -10,7 +10,7 @@ build:
   apt_packages:
     - libsfml-dev
     - libeigen3-dev
-    - python-pybind11
+    - python3-pybind11
   os: ubuntu-22.04
   tools:
     python: "3.9"
