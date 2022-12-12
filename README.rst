@@ -1,13 +1,23 @@
 POMDP Space Ship Environment Documentation
 ===============================================
 
-This is the documentation to the POMDP Space Ship Environment. 
+This is the documentation to the POMDP Space Ship Environment. This is a 2D environment
+for a Space Ship with two individually controllable thrusters. The goal is to reach a desired goal point (static or dynamic).
+The environment is filled with obstacles which can be sensed through distance sensors.
+This renders the environment only partially
+observable and thus the Markov Assumption is violated leading to issues with standard MLP-RL approaches.
 
 
 
 `Example video <https://www.youtube.com/watch?v=su16NdsVE5I&ab_channel=FinnBusch>`_
 
 `Source Code <https://github.com/finnBsch/PomdpSpaceShipEnv>`_
+
+Dependencies
+---------------------
+* `SFML <https://www.sfml-dev.org/>`_ for visualisation. Install with ``sudo apt install libsfml-dev`` for Debian-based distros.
+* `Eigen3 <https://eigen.tuxfamily.org/index.php?title=Main_Page>`_ for math. Install with ``sudo apt install libeigen3-dev`` for Debian-based distros.
+
 
 Getting Started
 ---------------------
@@ -25,8 +35,7 @@ Build and install the module
 
 Example Usage
 ---------------------
-To use the environment, consider the following script
-
+Generally, the environment is to be used as shown here.
 
 .. code-block :: python
 
@@ -48,7 +57,7 @@ To use the environment, consider the following script
    conf.DynamicGoals = False
    
    env = pomdp_spaceship_env.Env(conf, n_ships=n_ships)
-   env.SetViz(True, True)
+   env.SetViz(True, True)  # Draw Rays and Obstacles
    
    # Use np.float32 as input data type.
    ins = np.array([[10, 10, -1, 1]], dtype=np.float32)

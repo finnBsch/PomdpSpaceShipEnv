@@ -4,4 +4,5 @@ Contents
 .. toctree::
    Home <self>
    modules
+   usage
 

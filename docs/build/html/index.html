@@ -39,6 +39,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
 
         </div>
@@ -67,9 +68,19 @@
              
   <section id="pomdp-space-ship-environment-documentation">
 <h1>POMDP Space Ship Environment Documentation<a class="headerlink" href="#pomdp-space-ship-environment-documentation" title="Permalink to this headline"></a></h1>
-<p>This is the documentation to the POMDP Space Ship Environment.</p>
+<p>This is the documentation to the POMDP Space Ship Environment. This is a 2D environment
+for a Space Ship with two individually controllable thrusters. The goal is to reach a desired goal point (static or dynamic).
+The environment is filled with obstacles which can be sensed through distance sensors. This make the environment only partially
+observable and thus the Markov Assumption is violated leading to issues with standard MLP-RL approaches.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=su16NdsVE5I&amp;ab_channel=FinnBusch">Example video</a></p>
 <p><a class="reference external" href="https://github.com/finnBsch/PomdpSpaceShipEnv">Source Code</a></p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sfml-dev.org/">SFML</a> for visualisation. Install with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libsfml-dev</span></code> for Debian-based distros.</p></li>
+<li><p><a class="reference external" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen3</a> for math. Install with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libeigen3-dev</span></code> for Debian-based distros.</p></li>
+</ul>
+</section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
 <p>Build and install the module</p>
@@ -84,7 +95,7 @@
 </section>
 <section id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline"></a></h2>
-<p>To use the environment, consider the following script</p>
+<p>Generally, the environment is to be used as shown here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple script to test environment in real-time</span>
 
 <span class="kn">import</span> <span class="nn">pomdp_spaceship_env</span>
@@ -127,6 +138,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pomdp_spaceship_env.html">Pomdp Space Ship Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#interfacing-the-environment">Interfacing the environment</a></li>
 </ul>
 </li>
 </ul>
