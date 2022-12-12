@@ -41,7 +41,8 @@ release = ''
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    "sphinx.ext.autosummary"
 ]
 napoleon_google_docstring = True
 napoleon_numpy_docstring = False

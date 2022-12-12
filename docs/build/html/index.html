@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Pomdp Space Ship Environment’s documentation! &mdash; Pomdp Space Ship Environment  documentation</title>
+  <title>POMDP Space Ship Environment Documentation &mdash; Pomdp Space Ship Environment  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="pomdp_spaceship_env module" href="pomdp_spaceship_env.html" /> 
+    <link rel="next" title="API" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,9 +36,9 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pomdp_spaceship_env.html">pomdp_spaceship_env module</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API</a></li>
 </ul>
 
         </div>
@@ -55,7 +55,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Welcome to Pomdp Space Ship Environment’s documentation!</li>
+      <li class="breadcrumb-item active">POMDP Space Ship Environment Documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -65,29 +65,79 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-pomdp-space-ship-environment-s-documentation">
-<h1>Welcome to Pomdp Space Ship Environment’s documentation!<a class="headerlink" href="#welcome-to-pomdp-space-ship-environment-s-documentation" title="Permalink to this headline"></a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pomdp_spaceship_env.html">pomdp_spaceship_env module</a></li>
-</ul>
+  <section id="pomdp-space-ship-environment-documentation">
+<h1>POMDP Space Ship Environment Documentation<a class="headerlink" href="#pomdp-space-ship-environment-documentation" title="Permalink to this headline"></a></h1>
+<p>This is the documentation to the POMDP Space Ship Environment.</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=su16NdsVE5I&amp;ab_channel=FinnBusch">Example video</a></p>
+<p><a class="reference external" href="https://github.com/finnBsch/PomdpSpaceShipEnv">Source Code</a></p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
+<p>Build and install the module</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Clone the repository
+<span class="go">git clone https://github.com/finnBsch/PomdpSpaceShipEnv</span>
+
+
+<span class="gp"># </span>Install the Python Module
+<span class="go">pip install PomdpSpaceShipEnv</span>
+</pre></div>
 </div>
 </section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline"></a></h2>
+<p>To use the environment, consider the following script</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple script to test environment in real-time</span>
+
+<span class="kn">import</span> <span class="nn">pomdp_spaceship_env</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">conf</span> <span class="o">=</span> <span class="n">pomdp_spaceship_env</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n_ships</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Set Config</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">Viz</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">AutoReset</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">ShareEnvs</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">NumObs</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">DynamicGoals</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">pomdp_spaceship_env</span><span class="o">.</span><span class="n">Env</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">n_ships</span><span class="o">=</span><span class="n">n_ships</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">SetViz</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Use np.float32 as input data type.</span>
+<span class="n">ins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">ins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">ins</span><span class="p">,</span> <span class="n">n_ships</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">SetControl</span><span class="p">(</span><span class="n">ins</span><span class="p">)</span>
+
+<span class="c1"># Loop the env</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">Step</span><span class="p">()</span>  <span class="c1"># could also provide a dt by calling .Step(dt=dt), useful for training.</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">GetState</span><span class="p">()</span>
+    <span class="n">rewards</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">GetReward</span><span class="p">()</span>
+    <span class="n">dones</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">GetAgentDone</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pomdp_spaceship_env.html">Pomdp Space Ship Environment</a></li>
 </ul>
+</li>
+</ul>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pomdp_spaceship_env.html" class="btn btn-neutral float-right" title="pomdp_spaceship_env module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

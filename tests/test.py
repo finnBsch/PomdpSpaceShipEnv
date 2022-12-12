@@ -1,32 +1,31 @@
+# Simple script to test environment in real-time
+
 import pomdp_spaceship_env
-# import librlsimpy as pomdp_spaceship_env
 import numpy as np
-import time
-import scikit_build_example
-import cmake_example
 
+conf = pomdp_spaceship_env.Config()
 
-# print(help(pomdp_spaceship_env))
-print(pomdp_spaceship_env.__version__)
-a = pomdp_spaceship_env.Config()
-a.Viz = True
-a.ResX = int(1920/2)
-a.ResY = int(1080/2)
-n_ships = 20
-b = pomdp_spaceship_env.Env(a, n_ships)
-print(b)
-scikit_build_example.add(1, 2)
-b.Reset()
-t = time.time()
-for i in range(10000):
-    ins = np.array([[10, 10, -1, 1]], dtype=np.float32)
-    ins = np.repeat(ins, n_ships, axis=0)
-    b.Step()
-    j = b.GetState()
-    ins.tolist()
-    j2 = b.GetReward()
-    j3 = b.GetAgentDone()
-    mm = b.GetMaxIn()
-    mmmm = b.GetMinIn()
-    b.SetControl(ins)
-print(time.time() - t)
+N = 10000
+n_ships = 1
+
+# Set Config
+conf.Viz = True
+conf.AutoReset = True
+conf.ShareEnvs = False
+conf.NumObs = 60
+conf.DynamicGoals = False
+
+env = pomdp_spaceship_env.Env(conf, n_ships=n_ships)
+env.SetViz(True, True)
+
+# Use np.float32 as input data type.
+ins = np.array([[10, 10, -1, 1]], dtype=np.float32)
+ins = np.repeat(ins, n_ships, axis=0)
+env.SetControl(ins)
+
+# Loop the env
+for i in range(N):
+    env.Step()  # could also provide a dt by calling .Step(dt=dt), useful for training.
+    states = env.GetState()
+    rewards = env.GetReward()
+    dones = env.GetAgentDone()

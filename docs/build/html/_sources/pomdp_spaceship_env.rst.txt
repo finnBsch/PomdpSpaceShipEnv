@@ -1,4 +1,4 @@
-pomdp\_spaceship\_env module
+Pomdp Space Ship Environment
 ============================
 
 .. automodule:: pomdp_spaceship_env
