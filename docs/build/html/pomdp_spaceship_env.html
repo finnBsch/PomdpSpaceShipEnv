@@ -18,7 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="modules.html" /> 
+    <link rel="prev" title="Welcome to Pomdp Space Ship Environment’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,7 +55,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">&lt;no title&gt;</a></li>
       <li class="breadcrumb-item active">pomdp_spaceship_env module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/pomdp_spaceship_env.rst.txt" rel="nofollow"> View page source</a>
@@ -72,102 +71,29 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="pomdp_spaceship_env.Config">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
-<dl class="simple">
-<dt>Confic datastruct.</dt><dd><dl class="field-list simple">
-<dt class="field-odd">ivar viz</dt>
-<dd class="field-odd"><p>bool</p>
+<dd><p>Confic datastruct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ResX</strong> (<em>int</em>) – Width Resolution. Defaults to <code class="docutils literal notranslate"><span class="pre">1920</span></code></p></li>
+<li><p><strong>ResY</strong> (<em>int</em>) – Height Resolution. Defaults to <code class="docutils literal notranslate"><span class="pre">1080</span></code></p></li>
+<li><p><strong>SizeX</strong> (<em>float</em>) – Environment Width in meters. Defaults to <code class="docutils literal notranslate"><span class="pre">170</span></code></p></li>
+<li><p><strong>SizeY</strong> (<em>float</em>) – Height Resolution. Defaults to <code class="docutils literal notranslate"><span class="pre">1080</span></code></p></li>
+<li><p><strong>PrintLevel</strong> (<em>int</em>) – -/-.</p></li>
+<li><p><strong>AutoReset</strong> (<em>bool</em>) – A boolean determining whether a ship should be reset on terminal state. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>DynamicGoals</strong> (<em>bool</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>ShareEnvs</strong> (<em>bool</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Viz</strong> (<em>bool</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>NumObs</strong> (<em>int</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-</dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.AutoReset">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AutoReset</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.AutoReset" title="Permalink to this definition"></a></dt>
-<dd><p>Determines whether one Space Ship should be reset upon collision or goal condition
-Type: bool
-Default: True</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.DynamicGoals">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamicGoals</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.DynamicGoals" title="Permalink to this definition"></a></dt>
-<dd><p>Determines whether the goal points should be moving (dynamic) or not (static)
-Type: bool
-Default: False</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.NumObs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NumObs</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.NumObs" title="Permalink to this definition"></a></dt>
-<dd><p>Number of obstacles to be generated per Space Ship
-Type: int
-Default: 0</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.PrintLevel">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PrintLevel</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.PrintLevel" title="Permalink to this definition"></a></dt>
-<dd><p>Output print Level
-Type: int
-Default: 0</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.ResX">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResX</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.ResX" title="Permalink to this definition"></a></dt>
-<dd><p>Resolution in width.
-Type: int
-Default: 1920</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.ResY">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResY</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.ResY" title="Permalink to this definition"></a></dt>
-<dd><p>Resolution in height.
-Type: int
-Default: 1080</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.ShareEnvs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ShareEnvs</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.ShareEnvs" title="Permalink to this definition"></a></dt>
-<dd><p>Determines whether the Space Ships should share the Goal Point and Obstacles
-Type: bool
-Default: False</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.SizeX">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SizeX</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.SizeX" title="Permalink to this definition"></a></dt>
-<dd><p>Environment size width
-Type: float
-Default: 170</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.SizeY">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SizeY</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.SizeY" title="Permalink to this definition"></a></dt>
-<dd><p>Environment size height
-Type: float
-Default: 100</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pomdp_spaceship_env.Config.Viz">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Viz</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config.Viz" title="Permalink to this definition"></a></dt>
-<dd><p>Visualize the environment.
-:param viz: Setting whether to run the visualization or not., default to False
-:type viz: bool</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pomdp_spaceship_env.Env">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Env</span></span><a class="headerlink" href="#pomdp_spaceship_env.Env" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
-<dl class="py method">
+<dd><dl class="py method">
 <dt class="sig sig-object py" id="pomdp_spaceship_env.Env.Draw">
 <span class="sig-name descname"><span class="pre">Draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.Draw" title="Permalink to this definition"></a></dt>
 <dd><p>Draws the Environment without Stepping the Simulation.</p>
@@ -320,7 +246,7 @@ y0: float</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modules.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Pomdp Space Ship Environment’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

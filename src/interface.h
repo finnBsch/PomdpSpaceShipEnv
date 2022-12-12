@@ -57,62 +57,20 @@ PYBIND11_MODULE(pomdp_spaceship_env, m)
 //    options.disable_function_signatures();
     py::class_<GlobalParams>(m, "Config", R"pbdoc(
     Confic datastruct.
-	:ivar viz: bool
-    )pbdoc")
-    .def(py::init())
-            .def_readwrite("ResX", &GlobalParams::resx, R"pbdoc(
-    Resolution in width.
-    Type: int
-    Default: 1920
-    )pbdoc")
-            .def_readwrite("ResY", &GlobalParams::resy, R"pbdoc(
-    Resolution in height.
-    Type: int
-    Default: 1080
-    )pbdoc")
-            .def_readwrite("SizeX", &GlobalParams::sizex, R"pbdoc(
-    Environment size width
-    Type: float
-    Default: 170
-    )pbdoc")
-            .def_readwrite("SizeY", &GlobalParams::sizey, R"pbdoc(
-    Environment size height
-    Type: float
-    Default: 100
-    )pbdoc")
-            .def_readwrite("PrintLevel", &GlobalParams::print_level, R"pbdoc(
-    Output print Level
-    Type: int
-    Default: 0
-    )pbdoc")
-            .def_readwrite("AutoReset", &GlobalParams::auto_reset, R"pbdoc(
-    Determines whether one Space Ship should be reset upon collision or goal condition
-    Type: bool
-    Default: True
-    )pbdoc")
-            .def_readwrite("DynamicGoals", &GlobalParams::dynamic_goal, R"pbdoc(
-    Determines whether the goal points should be moving (dynamic) or not (static)
-    Type: bool
-    Default: False
-    )pbdoc")
-            .def_readwrite("ShareEnvs", &GlobalParams::share_envs,
-                           R"pbdoc(
-    Determines whether the Space Ships should share the Goal Point and Obstacles
-    Type: bool
-    Default: False
-    )pbdoc")
-            .def_readwrite("Viz", &GlobalParams::viz, R"pbdoc(
-    Visualize the environment.
-   	:param viz: Setting whether to run the visualization or not., default to False
-   	:type viz: bool
-    )pbdoc")
-            .def_readwrite("NumObs", &GlobalParams::num_obstacles,
-                           R"pbdoc(
-    Number of obstacles to be generated per Space Ship
-    Type: int
-    Default: 0
+    
+    Attributes:
+	    ResX (int) : Width Resolution. Defaults to ``1920``
+	    ResY (int) : Height Resolution. Defaults to ``1080``
+   	    SizeX (float) : Environment Width in meters. Defaults to ``170``
+	    SizeY (float) : Height Resolution. Defaults to ``1080``
+	    PrintLevel(int) : -/-.
+	    AutoReset (bool) : A boolean determining whether a ship should be reset on terminal state. Defaults to ``True``
+	    DynamicGoals (bool) : -/-. Defaults to ``False``
+	    ShareEnvs (bool) : -/-. Defaults to ``False``
+	    Viz (bool) : -/-. Defaults to ``True``
+	    NumObs (int) : -/-. Defaults to ``0``
+	    
     )pbdoc");
-
 
     py::class_<SpaceShipInterface>(m, "Env")
             .def(py::init<GlobalParams, int>(), R"pbdoc(
