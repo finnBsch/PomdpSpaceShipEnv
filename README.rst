@@ -14,6 +14,7 @@ observable and thus the Markov Assumption is violated leading to issues with sta
 `Source Code <https://github.com/finnBsch/PomdpSpaceShipEnv>`_
 
 `Documentation <https://pomdpspaceshipenv.readthedocs.io/en/latest/>`_
+
 Dependencies
 ---------------------
 * `SFML <https://www.sfml-dev.org/>`_ for visualisation. Install with ``sudo apt install libsfml-dev`` for Debian-based distros.
