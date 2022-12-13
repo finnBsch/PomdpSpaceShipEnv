@@ -202,7 +202,7 @@ bool DistanceSensors::update_col(int ship_id) {
             float w = ob_->get_w();
             float h = ob_->get_h();
             if(ob_->is_outer_wall()){
-                col(ship_id, 0) = outer_wall_intersect(x1, y1, 1.5, w, h);
+                col(ship_id, 0) = outer_wall_intersect(x1, y1, 2.1, w, h);
             }
             else {
                 float obs_ang = -ob_->get_angle();
@@ -210,7 +210,7 @@ bool DistanceSensors::update_col(int ship_id) {
                 float c_o = cosf(obs_ang);
                 float dx = abs(c_o * (ob_->get_x() - x1) + s_o * (ob_->get_y() - y1));
                 float dy = abs(-s_o * (ob_->get_x() - x1) + c_o * (ob_->get_y() - y1));
-                col(ship_id, 0) = circ_rect_intersect(dx, dy, 1.5, w, h);
+                col(ship_id, 0) = circ_rect_intersect(dx, dy, 2.1, w, h);
             }
         }
     }
@@ -236,7 +236,7 @@ void DistanceSensors::update_single(int i) {
             float w = ob_->get_w();
             float h = ob_->get_h();
             if(ob_->is_outer_wall()){
-                col(i, 0) = outer_wall_intersect(x1, y1, 1.5, w, h);
+                col(i, 0) = outer_wall_intersect(x1, y1, 2.1, w, h);
             }
             else {
                 float obs_ang = -ob_->get_angle();
@@ -244,7 +244,7 @@ void DistanceSensors::update_single(int i) {
                 float c_o = cosf(obs_ang);
                 float dx = abs(c_o * (ob_->get_x() - x1) + s_o * (ob_->get_y() - y1));
                 float dy = abs(-s_o * (ob_->get_x() - x1) + c_o * (ob_->get_y() - y1));
-                col(i, 0) = circ_rect_intersect(dx, dy, 1.5, w, h);
+                col(i, 0) = circ_rect_intersect(dx, dy, 2.1, w, h);
             }
         }
         // ## Collision check end

@@ -148,7 +148,7 @@ void SpaceShip::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     target.draw(glare_right,states);
     target.draw(*leftbooster, states);
     target.draw(*rightbooster, states);
-//    target.draw(*col_circ, states);
+    target.draw(*col_circ, states);
 
     if(params.label_ship) {
         target.draw(*label, states);
