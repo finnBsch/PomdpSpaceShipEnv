@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomdp Space Ship Environment &mdash; Pomdp Space Ship Environment  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="prev" title="API" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Pomdp Space Ship Environment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pomdp Space Ship Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Pomdp Space Ship Environment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API</a></li>
+      <li class="breadcrumb-item active">Pomdp Space Ship Environment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pomdp_spaceship_env.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pomdp_spaceship_env">
+<span id="pomdp-space-ship-environment"></span><h1>Pomdp Space Ship Environment<a class="headerlink" href="#module-pomdp_spaceship_env" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#pomdp_spaceship_env.Config" title="Permalink to this definition"></a></dt>
+<dd><p>Confic datastruct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ResX</strong> (<em>int</em>) – Width Resolution. Defaults to <code class="docutils literal notranslate"><span class="pre">1920</span></code></p></li>
+<li><p><strong>ResY</strong> (<em>int</em>) – Height Resolution. Defaults to <code class="docutils literal notranslate"><span class="pre">1080</span></code></p></li>
+<li><p><strong>SizeX</strong> (<em>float</em>) – Environment Width in meters. Defaults to <code class="docutils literal notranslate"><span class="pre">170</span></code></p></li>
+<li><p><strong>SizeY</strong> (<em>float</em>) – Height Resolution. Defaults to <code class="docutils literal notranslate"><span class="pre">1080</span></code></p></li>
+<li><p><strong>PrintLevel</strong> (<em>int</em>) – -/-.</p></li>
+<li><p><strong>AutoReset</strong> (<em>bool</em>) – A boolean determining whether a ship should be reset on terminal state. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>DynamicGoals</strong> (<em>bool</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>ShareEnvs</strong> (<em>bool</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>Viz</strong> (<em>bool</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>NumObs</strong> (<em>int</em>) – -/-. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Env</span></span><a class="headerlink" href="#pomdp_spaceship_env.Env" title="Permalink to this definition"></a></dt>
+<dd><p>Environment class. Contains all the required methods to run and interact with the
+Environment.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.Draw">
+<span class="sig-name descname"><span class="pre">Draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.Draw" title="Permalink to this definition"></a></dt>
+<dd><p>Draws the Environment without Stepping the Simulation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.ExportFrame">
+<span class="sig-name descname"><span class="pre">ExportFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.ExportFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Export the current frame to a given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>String</em>) – Export path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.GetAgentDone">
+<span class="sig-name descname"><span class="pre">GetAgentDone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.GetAgentDone" title="Permalink to this definition"></a></dt>
+<dd><p>Get an boolean array which contains “True” if the corresponding ship has collided or met the goal condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Numpy Array of Shape (n_ships, 1)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.GetMaxIn">
+<span class="sig-name descname"><span class="pre">GetMaxIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.GetMaxIn" title="Permalink to this definition"></a></dt>
+<dd><p>Get upper actuation limit of the Environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Numpy Array of Shape (control_dim, 1)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.GetMinIn">
+<span class="sig-name descname"><span class="pre">GetMinIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.GetMinIn" title="Permalink to this definition"></a></dt>
+<dd><p>Get lower actuation limit of the Environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Numpy Array of Shape (control_dim, 1)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.GetReward">
+<span class="sig-name descname"><span class="pre">GetReward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.GetReward" title="Permalink to this definition"></a></dt>
+<dd><p>Get an array of the current rewards of all ships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Numpy Array of Shape (n_ships, 1)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.GetState">
+<span class="sig-name descname"><span class="pre">GetState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">[</span></span><span class="pre">m</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">521</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.GetState" title="Permalink to this definition"></a></dt>
+<dd><p>Get an array of the current states of all ships.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Numpy Array of Shape (n_ships, state_dim)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.Reset">
+<span class="sig-name descname"><span class="pre">Reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.Reset" title="Permalink to this definition"></a></dt>
+<dd><p>Resets the entire environment. All goal points are regenerated, all ships reinitialized and all obstacles regenerated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.ResetToInit">
+<span class="sig-name descname"><span class="pre">ResetToInit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.ResetToInit" title="Permalink to this definition"></a></dt>
+<dd><p>Reset a specific ship, specified by its ID, to the initial position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – Ship Identifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.SetControl">
+<span class="sig-name descname"><span class="pre">SetControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ControlIn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.SetControl" title="Permalink to this definition"></a></dt>
+<dd><p>Set the control inputs for all shapes. <code class="docutils literal notranslate"><span class="pre">Must</span> <span class="pre">be</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">np.float32!</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ControlIn</strong> (<em>ndarray</em>) – Numpy Array of Shape (n_ships, control_dim) and type <code class="docutils literal notranslate"><span class="pre">np.float32</span></code>. Providing an array of a different type yields undesired behavior.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.SetGoal">
+<span class="sig-name descname"><span class="pre">SetGoal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.SetGoal" title="Permalink to this definition"></a></dt>
+<dd><p>Set a goal point, specified by the ID, to a specific position. Not working for dynamic goal points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em>) – Ship Identifier</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – x coordinate</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y coordinate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.SetShip">
+<span class="sig-name descname"><span class="pre">SetShip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vphi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.SetShip" title="Permalink to this definition"></a></dt>
+<dd><p>Set a specific ship, specified by its ID, to a specific Position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em>) – Ship Identifier</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – x coordinate</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y coordinate</p></li>
+<li><p><strong>phi</strong> (<em>float</em>) – angle</p></li>
+<li><p><strong>vx</strong> (<em>float</em>) – x velocity</p></li>
+<li><p><strong>vy</strong> (<em>float</em>) – y velocity</p></li>
+<li><p><strong>vphi</strong> (<em>float</em>) – angular velocity</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.SetView">
+<span class="sig-name descname"><span class="pre">SetView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.SetView" title="Permalink to this definition"></a></dt>
+<dd><p>Set the camera view (viz only).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – Camera view width.</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Camera view height.</p></li>
+<li><p><strong>x0</strong> (<em>float</em>) – Camera centerpoint.</p></li>
+<li><p><strong>y0</strong> (<em>float</em>) – Camera centerpoint.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.SetViz">
+<span class="sig-name descname"><span class="pre">SetViz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pomdp_spaceship_env.Env" title="pomdp_spaceship_env.pomdp_spaceship_env.Env"><span class="pre">pomdp_spaceship_env.pomdp_spaceship_env.Env</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_rays</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_obs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pomdp_spaceship_env.Env.SetViz" title="Permalink to this definition"></a></dt>
+<dd><p>Disable or enable obstacle drawing and distance sensor ray drawing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>draw_rays</strong> (<em>bool</em>) – Draw Rays?</p></li>
+<li><p><strong>draw_obs</strong> (<em>bool</em>) – Draw Obs?</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pomdp_spaceship_env.Env.Step">
+<span class="sig-name descname"><span class="pre">Step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pomdp_spaceship_env.Env.Step" title="Permalink to this definition"></a></dt>
+<dd><p>Overloaded function.</p>
+<ol class="arabic">
+<li><p>Step(self: pomdp_spaceship_env.pomdp_spaceship_env.Env) -&gt; bool</p>
+<blockquote>
+<div><p>Steps the environment. If viz was set to True, it will also draw the Environment.</p>
+</div></blockquote>
+</li>
+<li><p>Step(self: pomdp_spaceship_env.pomdp_spaceship_env.Env, dt: float) -&gt; bool</p>
+<blockquote>
+<div><p>Steps the environment given an elapsed time. If viz was set to True, it will also draw the Environment.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>dt (float) : elapsed time.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Finn Lukas Busch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
