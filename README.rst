@@ -19,6 +19,7 @@ Dependencies
 ---------------------
 * `SFML <https://www.sfml-dev.org/>`_ for visualisation. Install with ``sudo apt install libsfml-dev`` for Debian-based distros.
 * `Eigen3 <https://eigen.tuxfamily.org/index.php?title=Main_Page>`_ for math. Install with ``sudo apt install libeigen3-dev`` for Debian-based distros.
+* `PyBind11 <https://github.com/pybind/pybind11>`_ for C++ bindings. Install with ``sudo apt install pybind11-dev`` for Debian-based distros.
 
 
 Getting Started
@@ -32,7 +33,7 @@ Build and install the module
 
     
     # Install the Python Module
-    pip install PomdpSpaceShipEnv
+    pip install PomdpSpaceShipEnv/
 
 
 Example Usage
