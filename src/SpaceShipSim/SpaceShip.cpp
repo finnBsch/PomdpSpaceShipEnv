@@ -6,6 +6,11 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <iostream>
+#include <filesystem>
+#include "../resources/mainframe.h"
+#include "../resources/booster.h"
+
+namespace fs = std::filesystem;
 /**
  * Default constructor given controller
  * @param config global config
@@ -23,10 +28,12 @@ SpaceShip::SpaceShip(GlobalParams* config, ShipParams params,
     this->config = config;
     this->params = params;
     I = params.m/12 *(pow(params.l1,2) + pow(params.l2, 2));
-    if(!mainframe.loadFromFile("/home/finn/CLionProjects/RLSimLibrary/mainframe.png")){
+    std::cout << "Current path is " << fs::current_path() << '\n';
+
+    if(!mainframe.loadFromMemory(mainframe_png, mainframe_png_len)){
         std::cout << "Warning: Texture not found!" << std::endl;
     }
-    if(!booster.loadFromFile("/home/finn/CLionProjects/RLSimLibrary/booster.png")){
+    if(!booster.loadFromMemory(booster_png, booster_png_len)){
         std::cout << "Warning: Texture not found!" << std::endl;
     }
     if(config->viz) {

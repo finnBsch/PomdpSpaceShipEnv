@@ -70,10 +70,12 @@
 <h1>POMDP Space Ship Environment Documentation<a class="headerlink" href="#pomdp-space-ship-environment-documentation" title="Permalink to this headline"></a></h1>
 <p>This is the documentation to the POMDP Space Ship Environment. This is a 2D environment
 for a Space Ship with two individually controllable thrusters. The goal is to reach a desired goal point (static or dynamic).
-The environment is filled with obstacles which can be sensed through distance sensors. This make the environment only partially
+The environment is filled with obstacles which can be sensed through distance sensors.
+This renders the environment only partially
 observable and thus the Markov Assumption is violated leading to issues with standard MLP-RL approaches.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=su16NdsVE5I&amp;ab_channel=FinnBusch">Example video</a></p>
 <p><a class="reference external" href="https://github.com/finnBsch/PomdpSpaceShipEnv">Source Code</a></p>
+<p><a class="reference external" href="https://pomdpspaceshipenv.readthedocs.io/en/latest/">Documentation</a></p>
 <section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
 <ul class="simple">
@@ -114,7 +116,7 @@ observable and thus the Markov Assumption is violated leading to issues with sta
 <span class="n">conf</span><span class="o">.</span><span class="n">DynamicGoals</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="n">env</span> <span class="o">=</span> <span class="n">pomdp_spaceship_env</span><span class="o">.</span><span class="n">Env</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">n_ships</span><span class="o">=</span><span class="n">n_ships</span><span class="p">)</span>
-<span class="n">env</span><span class="o">.</span><span class="n">SetViz</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">SetViz</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># Draw Rays and Obstacles</span>
 
 <span class="c1"># Use np.float32 as input data type.</span>
 <span class="n">ins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
@@ -129,6 +131,13 @@ observable and thus the Markov Assumption is violated leading to issues with sta
     <span class="n">dones</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">GetAgentDone</span><span class="p">()</span>
 </pre></div>
 </div>
+</section>
+<section id="currently-working-on">
+<h2>Currently working on<a class="headerlink" href="#currently-working-on" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Fully Customizable cost function (from Python)</p></li>
+<li><p>Reproducible benchmark scenarios</p></li>
+</ul>
 </section>
 </section>
 <section id="contents">

@@ -4,7 +4,7 @@
 
 #include "Label.h"
 #include <iostream>
-
+#include "resources/Arial.h"
 Label::Label() {
 }
 
@@ -14,7 +14,7 @@ Label::Label(float posx, float posy) {
     this->text = new sf::Text();
     text->setFillColor(sf::Color::White);
     sf::Font* font = new sf::Font;
-    if(!font->loadFromFile("/home/finn/CLionProjects/RLSimLibrary/Arial.ttf")){
+    if(!font->loadFromMemory(Arial_ttf, Arial_ttf_len)){
         std::cout << "Couldn't load font!" << std::endl;
     }
     text->setFont(*font);
