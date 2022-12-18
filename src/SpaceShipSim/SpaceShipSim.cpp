@@ -114,13 +114,7 @@ bool SpaceShipSim::step(float dt) {
     states.col(0) += states.col(3) * dt;
     states.col(1) += states.col(4) * dt;
     states.col(2) += states.col(5) * dt;
-//    double constrainAngle(double x){
-//        x = x*180/M_PI;
-//        x = fmod(x + 180,360);
-//        if (x < 0)
-//            x += 360;
-//        return (x - 180)*M_PI/180;
-//    }
+
     // Wrap Angle, very important for cost function. Maybe find easier way? This could be inefficient
     states.col(2) = states.col(2)*180/M_PI + 180;
     states.col(2) = states.col(2) - (360 * (states.col(2)/360).cast<int>()).cast<float>();
@@ -137,7 +131,6 @@ bool SpaceShipSim::step(float dt) {
         }
     }
     update_rewards(dt);
-    prev_states = states;
     if(dones.isOnes()){
         done = true;
     }
@@ -226,12 +219,13 @@ Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>& SpaceShipSim::get_relative_st
  * Constructor
  * @param config SpaceParams including some fundamental information on the setup
  */
-SpaceShipSim::SpaceShipSim(GlobalParams* config, int n_ships, std::vector<std::string> ship_labels):scenario<act_arr, state_arr>(config) {
+SpaceShipSim::SpaceShipSim(GlobalParams* config, int n_ships, std::vector<std::string> ship_labels, RewardFunction* rew):scenario<act_arr, state_arr>(config) {
     sim_name = "SpaceShipSim";
     this->ship_labels = ship_labels;
     if(!ship_labels.empty()){
         label_ships = true;
     }
+    this->rew = rew;
 
     distrx = new std::uniform_real_distribution<float>(-config->sizex*0.9/2, config->sizex*0.9/2);
     distry = new std::uniform_real_distribution<float>(-config->sizey*0.9/2, config->sizey*0.9/2);
@@ -263,6 +257,7 @@ SpaceShipSim::SpaceShipSim(GlobalParams* config, int n_ships, std::vector<std::s
     rays = new DistanceSensors(config, 512, n_ships, 2, 1, &states, obs);
     prev_states.resize(n_ships, prev_states.cols());
     alivetimes.resize(n_ships, alivetimes.cols());
+    prev_actuations.resize(n_ships, prev_actuations.cols());
     prev_states.setZero();
     states.resize(n_ships, states.cols());
     states.setZero();
@@ -323,16 +318,45 @@ void SpaceShipSim::update_rewards(float dt){
             states.col(1) > config->sizey/2 || states.col(1) < -config->sizey/2;
     auto dists = Eigen::sqrt(Eigen::pow(goals.col(0)-states.col(0),2) + Eigen::pow(goals.col(1) - states.col(1), 2));
     auto prev_dists = Eigen::sqrt(Eigen::pow(goals.col(0)-prev_states.col(0),2) + Eigen::pow(goals.col(1) - prev_states.col(1), 2));
+
+
     auto in_goal = (dists < 3); // &&  Eigen::abs(states.col(5)) < M_PI/2; // && Eigen::abs(states.col(3) - goals.col(7)) < 1.2 && Eigen::abs(states.col(4) - goals.col(8)) < 1.2 && Eigen::abs(states.col(5)) < 0.15); //&& Eigen::abs(states.col(2)) < M_PI/5);
     in_goal_time = in_goal.select(in_goal_time + dt, 0);
     auto goal_reached = in_goal_time > 1;
-    auto ang_v_pen = -Eigen::abs(states.col(5))*dt*10;
-    auto rew = (prev_dists-dists)*5 + ang_v_pen;
+    rewards.setZero();
+    // Current rewards
+    if (rew->abs_angular_v != 0){
+        rewards = rewards - Eigen::abs(states.col(5))*dt*rew->abs_angular_v;
+    }
+    if (rew->dist != 0){
+        rewards = rewards - dists*rew->delta_dist*dt;
+    }
+    if (rew->abs_angle != 0){
+        rewards = rewards - Eigen::abs(states.col(2))*dt*rew->abs_angle;
+    }
+    if (rew->abs_force != 0){
+        rewards = rewards
+                - (Eigen::abs(actuations.col(0)) + Eigen::abs(actuations.col(1)))*dt*rew->abs_force;
+    }
+
+    // Delta Rewards
+    if (rew->delta_dist != 0){
+        rewards = rewards + (prev_dists-dists)*rew->delta_dist;
+    }
+    if (rew->delta_force != 0){
+        rewards = rewards - (Eigen::square(actuations.col(0) - prev_actuations.col(0)) + Eigen::square(actuations.col(1) - prev_actuations.col(1)))*rew->delta_force;
+    }
+    if (rew->delta_thrust_angle != 0){
+        rewards = rewards - (Eigen::square(actuations.col(2) - prev_actuations.col(2)) + Eigen::square(actuations.col(3) - prev_actuations.col(3)))*rew->delta_thrust_angle;
+    }
+
     dones = crashed || goal_reached || dones || alivetimes > 40;
 
 
-    rewards = crashed.select(Eigen::Array<float, Eigen::Dynamic, 1>::Constant(n_ships, 1, -1000), rew);
-    rewards = goal_reached.select(Eigen::Array<float, Eigen::Dynamic, 1>::Constant(n_ships, 1, 1000), rewards);
+    rewards = crashed.select(Eigen::Array<float, Eigen::Dynamic, 1>::Constant(n_ships, 1, -rew->crash), rewards);
+    rewards = goal_reached.select(Eigen::Array<float, Eigen::Dynamic, 1>::Constant(n_ships, 1, rew->goal_reached), rewards);
+    prev_states = states;
+    prev_actuations = actuations;
 }
 
 void SpaceShipSim::reset_goal(int id) {
@@ -408,6 +432,7 @@ void SpaceShipSim::reset_single(int id) {
     states(id, 1) = y;
     states(id, 2) = phi;
     prev_states.row(id) = states.row(id);
+    prev_actuations.row(id).setZero();
     rays->update_single(id);
 }
 
@@ -479,6 +504,7 @@ void SpaceShipSim::reset() {
         states(i, 2) = phi;
     }
     prev_states = states;
+    prev_actuations.setZero();
     init_states = states;
     clock.restart();
 }

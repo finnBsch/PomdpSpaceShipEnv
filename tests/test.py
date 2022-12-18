@@ -4,7 +4,7 @@ import pomdp_spaceship_env
 import numpy as np
 
 conf = pomdp_spaceship_env.Config()
-
+a = pomdp_spaceship_env.RewardFunction()
 N = 1000000
 n_ships = 1
 

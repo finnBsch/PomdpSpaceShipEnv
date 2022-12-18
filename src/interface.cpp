@@ -18,31 +18,19 @@ bool SpaceShipInterface::step_dt(float dt) {
     return sim->step(dt);
 }
 
-SpaceShipInterface::SpaceShipInterface(GlobalParams config, int n_ships, py::list ns){
+SpaceShipInterface::SpaceShipInterface(GlobalParams config, int n_ships, RewardFunction rew, py::list ns){
     Py_Initialize();
     this->n_ships = n_ships;
     control_in.resize(n_ships, 4);
     this->config = config;
+    this->rew = rew;
+
     for(int i = 0; i < len(ns); i++){
         labels.push_back(py::cast<std::string>(ns[i]));
     }
-    sim = new SpaceShipSim(&this->config, n_ships, labels);
+    sim = new SpaceShipSim(&this->config, n_ships, labels, &this->rew);
 }
 
-/**
- * Create sim.
- * @param viz boolean for viz or no viz
- * @param print_level print level. see scenario.h for def.
- */
-SpaceShipInterface::SpaceShipInterface(GlobalParams config, int n_ships){
-    Py_Initialize();
-    this->n_ships = n_ships;
-    this->config = config;
-
-    std::cout << config.print_level << " " << std::endl;
-    control_in.resize(n_ships, 4);
-    sim = new SpaceShipSim(&this->config, n_ships);
-}
 
 Eigen::Array<float, Eigen::Dynamic, 9 + NUM_RAYS>& SpaceShipInterface::get_states() {
     return sim->get_relative_state_();

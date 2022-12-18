@@ -61,6 +61,13 @@ napoleon_preprocess_types = False
 napoleon_type_aliases = None
 napoleon_attr_annotations = False
 add_module_names = False
+autodoc_default_options = {
+    'members': True,
+    'member-order': 'bysource',
+    'special-members': '__init__',
+    'undoc-members': True,
+    'exclude-members': '__weakref__'
+}
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

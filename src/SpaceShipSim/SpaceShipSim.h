@@ -15,6 +15,21 @@
 #include <eigen3/Eigen/Dense>
 #include "DistanceSensors.h"
 
+struct RewardFunction{
+    float dist = 0.0f;
+    float abs_angle = 0.0f;
+    float abs_angular_v = 10.0f;
+    float abs_force = 0.0f;
+    float crash = 1000;
+    float goal_reached = 1000;
+
+    float delta_thrust_angle = 0.0f;
+    float delta_force = 0.0f;
+    float delta_dist = 5.0f;
+
+
+};
+
 const int NUM_RAYS = 512;
 /**
  * Class for Space Ship Sim
@@ -24,6 +39,7 @@ private:
     act_arr max_in{30, 30, M_PI/3, M_PI/3};
     act_arr min_in{0, 0, -M_PI/3, -M_PI/3};
 
+    RewardFunction* rew;
     void reset_goal(int id);
     void reset_shared_goal();
     std::array<float, 3> deltas = {M_PI/2, M_PI/4, M_PI/4*3};
@@ -36,6 +52,7 @@ private:
     Eigen::Array<float, Eigen::Dynamic, 6> init_states;
     Eigen::Array<float, Eigen::Dynamic, 6> states;
     Eigen::Array<float, Eigen::Dynamic, 4> actuations;
+    Eigen::Array<float, Eigen::Dynamic, 4> prev_actuations;
     Eigen::Array<float, Eigen::Dynamic, 1> rewards;
     Eigen::Array<bool, Eigen::Dynamic, 1> dones;
     Eigen::Array<float, Eigen::Dynamic, 1> alivetimes;
@@ -61,7 +78,7 @@ private:
     int frame_id = 0;
 
 public:
-    SpaceShipSim(GlobalParams* params, int n_ships, std::vector<std::string> ship_labels = std::vector<std::string>{});
+    SpaceShipSim(GlobalParams* params, int n_ships, std::vector<std::string> ship_labels = std::vector<std::string>{}, RewardFunction* rew= new RewardFunction());
     ~SpaceShipSim();
     void draw(float dt) override;
     // Add Ships

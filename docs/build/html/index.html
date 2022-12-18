@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>POMDP Space Ship Environment Documentation &mdash; Pomdp Space Ship Environment  documentation</title>
@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -67,7 +69,7 @@
            <div itemprop="articleBody">
              
   <section id="pomdp-space-ship-environment-documentation">
-<h1>POMDP Space Ship Environment Documentation<a class="headerlink" href="#pomdp-space-ship-environment-documentation" title="Permalink to this headline"></a></h1>
+<h1>POMDP Space Ship Environment Documentation<a class="headerlink" href="#pomdp-space-ship-environment-documentation" title="Permalink to this heading"></a></h1>
 <p>This is the documentation to the POMDP Space Ship Environment. This is a 2D environment
 for a Space Ship with two individually controllable thrusters. The goal is to reach a desired goal point (static or dynamic).
 The environment is filled with obstacles which can be sensed through distance sensors.
@@ -77,26 +79,27 @@ observable and thus the Markov Assumption is violated leading to issues with sta
 <p><a class="reference external" href="https://github.com/finnBsch/PomdpSpaceShipEnv">Source Code</a></p>
 <p><a class="reference external" href="https://pomdpspaceshipenv.readthedocs.io/en/latest/">Documentation</a></p>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.sfml-dev.org/">SFML</a> for visualisation. Install with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libsfml-dev</span></code> for Debian-based distros.</p></li>
 <li><p><a class="reference external" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen3</a> for math. Install with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libeigen3-dev</span></code> for Debian-based distros.</p></li>
+<li><p><a class="reference external" href="https://github.com/pybind/pybind11">PyBind11</a> for C++ bindings. Install with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">pybind11-dev</span></code> for Debian-based distros.</p></li>
 </ul>
 </section>
 <section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
 <p>Build and install the module</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Clone the repository
 <span class="go">git clone https://github.com/finnBsch/PomdpSpaceShipEnv</span>
 
 
 <span class="gp"># </span>Install the Python Module
-<span class="go">pip install PomdpSpaceShipEnv</span>
+<span class="go">pip install PomdpSpaceShipEnv/</span>
 </pre></div>
 </div>
 </section>
 <section id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline"></a></h2>
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading"></a></h2>
 <p>Generally, the environment is to be used as shown here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple script to test environment in real-time</span>
 
@@ -133,7 +136,7 @@ observable and thus the Markov Assumption is violated leading to issues with sta
 </div>
 </section>
 <section id="currently-working-on">
-<h2>Currently working on<a class="headerlink" href="#currently-working-on" title="Permalink to this headline"></a></h2>
+<h2>Currently working on<a class="headerlink" href="#currently-working-on" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fully Customizable cost function (from Python)</p></li>
 <li><p>Reproducible benchmark scenarios</p></li>
@@ -141,12 +144,42 @@ observable and thus the Markov Assumption is violated leading to issues with sta
 </section>
 </section>
 <section id="contents">
-<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline"></a></h1>
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pomdp_spaceship_env.html">Pomdp Space Ship Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pomdp_spaceship_env.html">Pomdp Space Ship Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Config.__init__"><code class="docutils literal notranslate"><span class="pre">Config.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env"><code class="docutils literal notranslate"><span class="pre">Env</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.Draw"><code class="docutils literal notranslate"><span class="pre">Env.Draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.ExportFrame"><code class="docutils literal notranslate"><span class="pre">Env.ExportFrame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.GetAgentDone"><code class="docutils literal notranslate"><span class="pre">Env.GetAgentDone()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.GetMaxIn"><code class="docutils literal notranslate"><span class="pre">Env.GetMaxIn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.GetMinIn"><code class="docutils literal notranslate"><span class="pre">Env.GetMinIn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.GetReward"><code class="docutils literal notranslate"><span class="pre">Env.GetReward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.GetState"><code class="docutils literal notranslate"><span class="pre">Env.GetState()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.Reset"><code class="docutils literal notranslate"><span class="pre">Env.Reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.ResetToInit"><code class="docutils literal notranslate"><span class="pre">Env.ResetToInit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.SetControl"><code class="docutils literal notranslate"><span class="pre">Env.SetControl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.SetGoal"><code class="docutils literal notranslate"><span class="pre">Env.SetGoal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.SetShip"><code class="docutils literal notranslate"><span class="pre">Env.SetShip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.SetView"><code class="docutils literal notranslate"><span class="pre">Env.SetView()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.SetViz"><code class="docutils literal notranslate"><span class="pre">Env.SetViz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.Step"><code class="docutils literal notranslate"><span class="pre">Env.Step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.Step_dt"><code class="docutils literal notranslate"><span class="pre">Env.Step_dt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.Env.__init__"><code class="docutils literal notranslate"><span class="pre">Env.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.RewardFunction"><code class="docutils literal notranslate"><span class="pre">RewardFunction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pomdp_spaceship_env.html#pomdp_spaceship_env.RewardFunction.__init__"><code class="docutils literal notranslate"><span class="pre">RewardFunction.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
