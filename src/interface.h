@@ -13,6 +13,7 @@
 #include <pybind11/eigen.h>
 #include <pybind11/stl.h>
 #include <iostream>
+#include <iomanip>
 
 namespace py = pybind11;
 
@@ -46,6 +47,18 @@ public:
     void reset_to_init(int id);
 };
 
+template<typename T> std::string print_element(T t, const int& width){
+    std::stringstream ret_string;
+    ret_string << std::left << std::setw(width) << std::setfill(' ') << t;
+    return ret_string.str();
+}
+int name_width = 40;
+int content_width = 15;
+std::string float_with_prec(float in, int prec){
+    std::stringstream ret_string;
+    ret_string << std::fixed << std::setprecision(prec) << in;
+    return ret_string.str();
+}
 PYBIND11_MODULE(pomdp_spaceship_env, m)
 {
     py::options options;
@@ -67,6 +80,21 @@ PYBIND11_MODULE(pomdp_spaceship_env, m)
     .def(py::init(),  R"pbdoc(
     Default Constructor with the parameters listed above.
     )pbdoc")
+    .def("__repr__",
+          [](const RewardFunction &a) {
+              return ("<pomdp_spaceship_env.RewardFunction>: \n" +
+              print_element(" ", name_width) + print_element("Dist", content_width) + print_element("Angle", content_width)
+              + print_element("Thrust", content_width) + print_element("ThrustAngle", content_width) + "\n" +
+                      print_element(std::string(name_width + content_width*4, '-'), name_width+ content_width*4) + "\n" +
+              print_element("Weight for current Value", name_width) + print_element(a.dist, content_width) + print_element(a.abs_angle, content_width)
+              + print_element(a.abs_force, content_width) + print_element("-", content_width) + "\n" +
+
+              print_element("DeltaWeight/VelocityWeight", name_width) + print_element(a.delta_dist, content_width) + print_element("-", content_width) +
+                      print_element(a.delta_force, content_width) + print_element(a.delta_thrust_angle, content_width) + "\n\n"
+                      + "Terminal Rewards: Goal: " + float_with_prec(a.goal_reached, 2) + " Crash: " +  float_with_prec(-a.crash, 2)
+              );
+          }
+            )
     .def_readwrite("DistancePenalty", &RewardFunction::dist)
     .def_readwrite("AbsAnglePenalty", &RewardFunction::abs_angle)
     .def_readwrite("AbsAngleVPenalty", &RewardFunction::abs_angular_v)
