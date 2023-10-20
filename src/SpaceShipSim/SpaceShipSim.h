@@ -18,7 +18,7 @@
 struct RewardFunction{
     float dist = 0.0f;
     float abs_angle = 0.0f;
-    float abs_angular_v = 10.0f;
+    float abs_angular_v = 0.0f;
     float abs_force = 0.0f;
     float crash = 1000;
     float goal_reached = 1000;

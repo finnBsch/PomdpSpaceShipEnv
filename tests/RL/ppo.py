@@ -52,7 +52,7 @@ class PPO():
         self.actor_cell = None
         self.critic_cell = None
         self.sim_conf = sim_conf
-        if isinstance(self.ac, ActorCritic1DConv):
+        if self.ac.__class__.__name__ == "ActorCritic1DConv":
             self.is_recurrent = False
             self.buffer = RollOutBuffer(self.n_sims, self.max_steps, self.state_dim, self.act_dim,
                                         self.gamma, self.gae_lambda)
@@ -157,7 +157,7 @@ class PPO():
             self.env.Step_dt(self.dt)
             t_done = self.env.GetAgentDone()
             t_rewards = self.env.GetReward()
-            self.n_goals.append((t_rewards==1000).sum())
+            self.n_goals.append((t_rewards==100).sum())
             self.current_rew += t_rewards
             self.running_rew = np.where(t_done, self.running_rew * 0.8 + 0.2 * self.current_rew, self.running_rew)
             self.current_rew = np.where(t_done, 0, self.current_rew)
@@ -278,6 +278,7 @@ class PPO():
                     self.optim.step()
             print("train end")
             if (e + 1) % self.plot_interval == 0:
+                print(self.ac.log_std.exp())
                 if self.live_plot:
                     self.viz.line(X=[e + 1], Y=[np.mean(self.running_rew)], win=self.rew_window, update='append')
                     self.viz.line(X=[e + 1], Y=[np.mean(self.running_steps) * self.dt], win=self.step_window,
@@ -317,7 +318,7 @@ class PPO():
         for i in range(len(versions)):
             names.append("Ep. " + versions[i])
             if self.is_recurrent:
-                nets.append(LSTMActorCritic1DConv(self.state_dim, 32, self.act_dim, self.recurrent_layers).to(DEVICE))
+                nets.append(LSTMActorCritic1DConv(self.state_dim, 512, self.act_dim, self.recurrent_layers).to(DEVICE))
             else:
                 nets.append(ActorCritic1DConv(self.state_dim, self.act_dim).to(DEVICE))
             nets[-1].load_state_dict(torch.load(self.model_prefix + versions[i], map_location=DEVICE))
@@ -328,6 +329,8 @@ class PPO():
         sim_conf.DynamicGoals = self.sim_conf.DynamicGoals
         sim_conf.ShareEnvs = False
         sim_conf.NumObs = self.sim_conf.NumObs
+        sim_conf.ResX = int(1920/2)
+        sim_conf.ResY = int(1080/2)
 
         sim = pomdp_spaceship_env.Env(sim_conf, len(versions), pomdp_spaceship_env.RewardFunction(), names)
         sim.Reset()

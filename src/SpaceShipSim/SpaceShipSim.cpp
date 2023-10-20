@@ -329,7 +329,7 @@ void SpaceShipSim::update_rewards(float dt){
         rewards = rewards - Eigen::abs(states.col(5))*dt*rew->abs_angular_v;
     }
     if (rew->dist != 0){
-        rewards = rewards - dists*rew->delta_dist*dt;
+        rewards = rewards - dists*rew->dist*dt;
     }
     if (rew->abs_angle != 0){
         rewards = rewards - Eigen::abs(states.col(2))*dt*rew->abs_angle;
@@ -350,7 +350,7 @@ void SpaceShipSim::update_rewards(float dt){
         rewards = rewards - (Eigen::square(actuations.col(2) - prev_actuations.col(2)) + Eigen::square(actuations.col(3) - prev_actuations.col(3)))*rew->delta_thrust_angle;
     }
 
-    dones = crashed || goal_reached || dones || alivetimes > 40;
+    dones = crashed || goal_reached || dones || alivetimes > 20;
 
 
     rewards = crashed.select(Eigen::Array<float, Eigen::Dynamic, 1>::Constant(n_ships, 1, -rew->crash), rewards);

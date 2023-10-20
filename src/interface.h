@@ -59,6 +59,7 @@ std::string float_with_prec(float in, int prec){
     ret_string << std::fixed << std::setprecision(prec) << in;
     return ret_string.str();
 }
+
 PYBIND11_MODULE(pomdp_spaceship_env, m)
 {
     py::options options;
@@ -89,7 +90,7 @@ PYBIND11_MODULE(pomdp_spaceship_env, m)
               print_element("Weight for current Value", name_width) + print_element(a.dist, content_width) + print_element(a.abs_angle, content_width)
               + print_element(a.abs_force, content_width) + print_element("-", content_width) + "\n" +
 
-              print_element("DeltaWeight/VelocityWeight", name_width) + print_element(a.delta_dist, content_width) + print_element("-", content_width) +
+              print_element("DeltaWeight/VelocityWeight", name_width) + print_element(a.delta_dist, content_width) + print_element(a.abs_angular_v, content_width) +
                       print_element(a.delta_force, content_width) + print_element(a.delta_thrust_angle, content_width) + "\n\n"
                       + "Terminal Rewards: Goal: " + float_with_prec(a.goal_reached, 2) + " Crash: " +  float_with_prec(-a.crash, 2)
               );

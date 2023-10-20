@@ -87,43 +87,43 @@ implements both actor and critic in one model
         super(LSTMActorCritic1DConv, self).__init__()
         self.recurrent_layers = recurrent_layers
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.actor_lstm = nn.LSTM(44 + 9, hs_dim, num_layers=self.recurrent_layers, batch_first=True)
-        self.critic_lstm = nn.LSTM(44 + 9, hs_dim, num_layers=self.recurrent_layers, batch_first=True)
+        self.actor_lstm = nn.LSTM(53, hs_dim, num_layers=self.recurrent_layers, batch_first=True)
+        self.critic_lstm = nn.LSTM(53, hs_dim, num_layers=self.recurrent_layers, batch_first=True)
         self.hidden_cell_a = None
         self.hidden_cell_c = None
         self.hs_dim = hs_dim
         self.cs_dim = hs_dim
 
         self.conv = nn.Conv1d(1, 1, 30, 5)
-        nn.init.orthogonal_(self.conv.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.conv.weight, np.sqrt(0.5))
         self.conv_c = nn.Conv1d(1, 1, 30, 5)
-        nn.init.orthogonal_(self.conv_c.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.conv_c.weight, np.sqrt(0.5))
 
         self.conv2 = nn.Conv1d(1, 1, 10, 2)
-        nn.init.orthogonal_(self.conv2.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.conv2.weight, np.sqrt(0.5))
         self.conv2_c = nn.Conv1d(1, 1, 10, 2)
-        nn.init.orthogonal_(self.conv2_c.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.conv2_c.weight, np.sqrt(0.5))
 
         self.affine1_a = nn.Linear(hs_dim, 100)
-        nn.init.orthogonal_(self.affine1_a.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.affine1_a.weight, np.sqrt(0.5))
         self.affine2_a = nn.Linear(100, 50)
-        nn.init.orthogonal_(self.affine2_a.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.affine2_a.weight, np.sqrt(0.5))
         self.affine3_a = nn.Linear(50, 25)
-        nn.init.orthogonal_(self.affine3_a.weight, np.sqrt(2))
-        self.action_head = nn.Linear(100, action_dim)
-        nn.init.orthogonal_(self.action_head.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.affine3_a.weight, np.sqrt(0.5))
+        self.action_head = nn.Linear(25, action_dim)
+        nn.init.orthogonal_(self.action_head.weight, np.sqrt(0.5))
 
 
         self.affine1_c = nn.Linear(hs_dim, 100)
-        nn.init.orthogonal_(self.affine1_c.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.affine1_c.weight, np.sqrt(0.5))
         self.affine2_c = nn.Linear(100, 64)
-        nn.init.orthogonal_(self.affine2_c.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.affine2_c.weight, np.sqrt(0.5))
         self.affine3_c = nn.Linear(64, 64)
-        nn.init.orthogonal_(self.affine3_c.weight, np.sqrt(2))
-        self.value_head = nn.Linear(100, 1)
-        nn.init.orthogonal_(self.value_head.weight, np.sqrt(2))
+        nn.init.orthogonal_(self.affine3_c.weight, np.sqrt(0.5))
+        self.value_head = nn.Linear(64, 1)
+        nn.init.orthogonal_(self.value_head.weight, np.sqrt(0.5))
 
-        self.log_std = nn.Parameter(torch.FloatTensor([0.5, 0.5, 0.5, 0.5]).log(), requires_grad=True)
+        self.log_std = nn.Parameter(torch.FloatTensor([0.1, 0.1, 0.1, 0.1]).log(), requires_grad=True)
 
     def reset_hidden(self):
         self.hidden_cell_a = None
@@ -205,12 +205,12 @@ implements both actor and critic in one model
 
         x_in_a_ = torch.flatten(x_in_a_, 0, 1)
         x_in_c_ = torch.flatten(x_in_c_, 0, 1)
-        x_a = F.tanh(self.affine1_a(x_in_a_))
-        # x_a = F.tanh(self.affine2_a(x_a))
-        # x_a = F.tanh(self.affine3_a(x_a))
-        x_c = F.tanh(self.affine1_c(x_in_c_))
-        # x_c = F.tanh(self.affine2_c(x_c))
-        # x_c = F.tanh(self.affine3_c(x_c))
+        x_a = F.relu(self.affine1_a(x_in_a_))
+        x_a = F.relu(self.affine2_a(x_a))
+        x_a = F.tanh(self.affine3_a(x_a))
+        x_c = F.relu(self.affine1_c(x_in_c_))
+        x_c = F.relu(self.affine2_c(x_c))
+        x_c = F.tanh(self.affine3_c(x_c))
 
         action_prob = F.tanh(self.action_head(x_a))
         state_values = self.value_head(x_c)
