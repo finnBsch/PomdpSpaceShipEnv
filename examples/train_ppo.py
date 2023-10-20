@@ -1,22 +1,7 @@
-import argparse
-from collections import deque
-import pomdp_spaceship_env
-import visdom
-import numpy as np
 import os
-import time
 from RL.ppo import *
 from RL.policies import *
 import torch
-import time
-import string
-import torch.nn as nn
-import torch.optim as optim
-from colour import Color
-import torch.nn.functional as F
-from torch.distributions import Categorical
-import cProfile, pstats, io
-from pstats import SortKey
 from line_profiler import LineProfiler
 PROFILE = False
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -76,8 +61,8 @@ def main():
         lp_wrap = prof(ppo.train)
         lp_wrap()
         prof.print_stats()
-    ppo.train()
-    # ppo.test_multiple(["160"])#, "1000", "500"])
+    # ppo.train()
+    ppo.test_multiple(["160"])#, "1000", "500"])
 
     # ppo.test()<
 

@@ -1,22 +1,14 @@
-import argparse
-from collections import deque
 import pomdp_spaceship_env
 import visdom
 import numpy as np
-from tests.RL.buffers import *
-from tests.RL.policies import *
-import time
+from buffers import *
+from policies import *
+
 import torch
 import time
-import string
+
 import torch.nn as nn
 import torch.optim as optim
-from colour import Color
-import torch.nn.functional as F
-from torch.distributions import Categorical
-import cProfile, pstats, io
-from pstats import SortKey
-from line_profiler import LineProfiler
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
