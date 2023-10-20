@@ -74,7 +74,3 @@ Generally, the environment is to be used as shown here.
        rewards = env.GetReward()
        dones = env.GetAgentDone()
 
-Currently working on
----------------------
-* Fully Customizable cost function (from Python)
-* Reproducible benchmark scenarios
